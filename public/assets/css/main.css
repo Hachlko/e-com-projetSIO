@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'Lost-in-South, raleway';
+    src: url('font/Raleway-Bold.ttf');
+    src: url('font/Raleway-Regular.ttf');
+    src: url('font/Lost-in-South.otf');
+    font-weight: normal;
+    font-style: normal;
+
+
+}
+
+/* Enlève le padding et le margin */
+html, body{
+    padding:0;
+    margin:0;
+}
+
+/* definit la police du titre */
+.titre-site{
+    font-family: 'lost-in-south, raleway';
+}
+
+/* definit la largeur du site */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+/* meme chose que le body */
+header{
+    padding: 0;
+    margin: 0;
+}
+
+.bold {
+    font-weight: bold;
+  }
+  
+  .formCat {
+    display: none;
+  }
+  
+  .showFormCat {
+    display: block;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  button > a {
+    color: white !important;
+    text-decoration: none;
+  }
+  
+  textarea {
+    resize: none;
+  }
+
+
+#barre-recherche{
+    margin-bottom: 1em;
+}
+
+/* enleve les puces des listes */
+li {
+    list-style-type: none;
+}
+
+/* colore les balises a */
+.color-a{
+    color: rgb(206, 154, 86);
+    text-decoration: none;
+}
+.color-p{
+    color:rgb(248, 248, 248);
+    
+}
+
+/* style bouton menu */
+.menu-opt{
+    padding:0.2cm;
+    border: 0.1em solid;
+    border-top-right-radius: 12px;
+}
+
+/* regle la taille des images carousel */
+.carousel-item img{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 725px;
+}
+
+/* bordure du formulaire */
+.bd-form{
+    border-top: darkgray dotted 2px;
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+
+/* espace le formulaire */ 
+.divH{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/* pareil qu'au dessus */
+.divB{
+    margin-bottom: 1.5em;
+}
+
+/* style carte */
+#carte{
+    margin-top: 3em;
+    margin-bottom: 2em;
+}
+
+/* écart entre carte et ombre */
+.cartdep{
+    margin-bottom: 2em;
+    margin-right: 1em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* couleur bouton */
+.btn{
+    background-color: orange;
+    border: 1px solid rgb(206, 154, 86);
+}
+
+/* grand texte dans le carousel */
+.carousel-caption h5{
+    font-size: 3em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    background-color: orange;
+    border-radius: 3em;
+    opacity: 75%;
+}
+
+/* petit texte dans le carousel */
+.carousel-p{
+    font-family: 'lost-in-south, raleway';
+    color: rgb(248, 248, 248);
+    font-size: 1.5em;
+}
+
+/* style bouton page cartouche dans index */
+.cartoucheSec{
+    border: 1px solid darkgray;
+    font-family: 'lost-in-south, raleway';
+    margin-top: 3em;
+    padding: 0.5em;
+    margin-bottom: 2em;
+    border-radius: 3em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* bordure du form */
+.border-form{
+    border: 1px solid darkgray;
+    
+    padding-top: 1em;
+    border-radius: 3em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* définit la largeur des div form */
+.c-width{
+    max-width: 50%;
+}
+
+/* voir au dessus */
+.i-width{
+    max-width: 68%;
+}
+
+/* style footer */
+footer {
+    margin-top: auto;
+  }
+
+/* style bouton footer */
+.btn-foot{
+    padding: 0.5em;
+    border: 1px solid rgb(222, 131, 12);
+    border-radius: 1em;
+    background-color: darkorange;
+}
+
+.btn-foot a{
+    color: black;
+}
+
+
+.pull-right{
+    float: right !important;
+}
+
+.pull-left{
+    float: left !important;
+}
+
+
