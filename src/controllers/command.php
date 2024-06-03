@@ -24,4 +24,5 @@ class Command extends Controller
         $_SESSION['idCommand'] = $idCommand;
         header("location:" . ROOT . "cart");
     }
+
 }

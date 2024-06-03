@@ -90,4 +90,33 @@ class Profil extends Controller
         $data['pageTitle'] = "Mes commandes";
         $this->view('commands', $data);
     }
+    
+    /**
+     * details
+     * charge le details des commandes
+     * @return void
+     */
+    public function details(){
+        $user = $this->loadModel('User');
+        $userData = $user->checkLogin();
+
+        if(is_object($userData)){
+            $data['userData'] = $userData;
+        }
+
+        $command = $this->loadModel('CommandModel');
+        $allDetails = $command->getAllDetailsCommand();
+        $detailsHTML = $command->makeTableAllDetails($allDetails);
+        $noCommand = "";
+
+        if (strlen($detailsHTML == "")) {
+
+            $noCommand =  "<p class='text-center'>Vous n'avez aucune commande</p>";
+        }
+
+        $data['noCommand'] = $noCommand;
+        $data['details'] = $detailsHTML;
+        $data['pageTitle'] = "Détails de mes Commandes";
+        $this->view('detailsCommand', $data);
+    }
 }

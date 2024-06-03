@@ -104,7 +104,7 @@ class Product
      * getOneProduct
      * selectionne un produit donner
      * @param  int $idProduct
-     * @return array
+     * @return object
      */
     public function getOneProduct($idProduct)
     {

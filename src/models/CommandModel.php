@@ -1,5 +1,6 @@
 <?php
 
+require_once('../src/models/Product.php');
 class CommandModel
 {
     /**
@@ -50,12 +51,23 @@ class CommandModel
 
     /**
      * getDetailsCommand
-     * recupere les detailsCmd de la BDD
+     * recupere un detailsCmd de la BDD
      */
-    public function getDetailsCommand($idCommand, $idProduit){
+    public function getAllDetailsCommand(){
         $db = Database::getInstance();
 
-        $result = $db->read("SELECT numCmd, idProduit, qteCmd FROM detailscmd WHERE numCmd = $idCommand and idProduit = $idProduit ORDER BY numCmd");
+        $result = $db->read("SELECT numCmd, idProduit, qteCmd FROM detailscmd ORDER BY numCmd");
+        return $result;
+    }
+
+    /**
+     * getUnDetailsCommand
+     * recupere un detailsCmd de la BDD
+     */
+    public function getUnDetailsCommand($idCommand){
+        $db = Database::getInstance();
+
+        $result = $db->read("SELECT numCmd, idProduit, qteCmd FROM detailscmd WHERE numCmd = $idCommand ORDER BY numCmd");
         return $result;
     }
 
@@ -87,7 +99,7 @@ class CommandModel
      * makeTable
      * affichage des commandes
      * @param  array $commands
-     * @return HTML elements
+     * @return string elements
      */
     public function makeTable($commands)
     {
@@ -116,6 +128,44 @@ class CommandModel
                 <td>' . $date . '</td>
                             <td>' . $command->montantCmd . '</td>
                         </tr>';
+            }
+        }
+        return $tableHTML;
+    }
+
+    /**
+     * makeTableUnDetails
+     * Affiche un tableau html du details d'une commande donnée
+     * @param object $dtsCommand
+     * @return string
+     */
+    public function makeTableUnDetails($dtsCommand){
+        $tableHTML = "";
+        if(is_object($dtsCommand)){
+            $Prod = new Product;
+            $unProd = $Prod->getOneProduct($dtsCommand->idProduit);
+            foreach($unProd as $leProd){
+                $tableHTML .= '<tr>
+                            <td>' . $dtsCommand->numCmd . '</td>
+                            <td>' . $leProd->nomProduit . '</td>
+                            <td>' . $dtsCommand->qteCmd . '</td>
+                            </tr>';
+            }
+        }
+        return $tableHTML;
+    }
+
+    /**
+     * Undocumented function
+     * affiche un tableau html des details de tout les commandes
+     * @param array $dtsCommands
+     * @return string
+     */
+    public function makeTableAllDetails($dtsCommands){
+        $tableHTML = "";
+        if(is_array($dtsCommands)){
+            foreach($dtsCommands as $dtsCommand){
+                $tableHTML .= $this->makeTableUnDetails($dtsCommand);
             }
         }
         return $tableHTML;

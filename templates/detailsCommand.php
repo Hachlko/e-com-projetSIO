@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row justify-content-center my-5">
         <div class="col-8 text-center">
-            <h1 class="">Commandes </h1>
+            <h1 class="">Détails Commandes </h1>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -10,17 +10,17 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Date de la commande</th>
-                        <th scope="col">Montant de la commande(€)</th>
+                        <th scope="col">Numéro de commande</th>
+                        <th scope="col">Nom du produit</th>
+                        <th scope="col">Quantité commander</th>
                     </tr>
                 </thead>
                 <tbody id="tableCategories">
                     <?php
-                    echo $commands;
+                    echo $details;
                     ?>
                 </tbody>
             </table>
-            <button class="btn btn-primary"><a href="<?= ROOT ?>profil/details">Voir le détails</a></button>
         </div>
     </div>
     <?php
