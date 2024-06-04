@@ -17,7 +17,7 @@ class Product
         $data['nomProduit'] = validateData($_POST['name']);
         $data['descProduit'] = validateData($_POST['description']);
         $data['prixUnit'] = validateData($_POST['price']);
-        $data['prixUnit'] = (int)$data['prixUnit'];
+        $data['prixUnit'] = (double)$data['prixUnit'];
         $data['qteStock'] = validateData($_POST['stock']);
         $data['qteStock'] = (int)$data['qteStock'];
         $data['codeCateg'] = validateData($_POST['category']);
@@ -53,9 +53,10 @@ class Product
             $nameImage = $this->getRandomString(5) . '_' . $data['pathImg'];
             $data['pathImg'] = $nameImage;
 
-            $directory = $_SERVER['DOCUMENT_ROOT'] . ROOT_PATH . "public/assets/img/" . $nameImage;
+            $directory = $_SERVER['DOCUMENT_ROOT'] . "/public/assets/img/" . $nameImage;
+            var_dump($_SERVER['DOCUMENT_ROOT']);
             copy($_FILES['image']['tmp_name'], $directory);
-            $query = "INSERT INTO product (nomProduit, descProduit, pathImg, prixUnit, qteStock, codeCateg) 
+            $query = "INSERT INTO produits (nomProduit, descProduit, pathImg, prixUnit, qteStock, codeCateg) 
             VALUES (:nomProduit, :descProduit, :pathImg, :prixUnit, :qteStock, :codeCateg)";
 
             $result = $db->write($query, $data);
@@ -214,7 +215,7 @@ class Product
         $data['nomProduit'] = validateData($_POST['name']);
         $data['descProduit'] = validateData($_POST['description']);
         $data['prixUnit'] = validateData($_POST['price']);
-        $data['prixUnit'] = (int)$data['prixUnit'];
+        $data['prixUnit'] = (double)$data['prixUnit'];
         $data['qteStock'] = validateData($_POST['stock']);
         $data['qteStock'] = (int)$data['qteStock'];
         $data['codeCateg'] = validateData($_POST['category']);
@@ -252,6 +253,7 @@ class Product
             $data['idProduit'] =  (int)$idProduct;
 
             $directory = $_SERVER['DOCUMENT_ROOT'] . ROOT_PATH . "public/assets/img/" . $nameImage;
+            
             copy($_FILES['image']['tmp_name'], $directory);
 
             $query = "UPDATE produits SET nomProduit = :nomProduit, descProduit = :descProduit, pathImg = :pathImg, qteStock = :qteStock, prixUnit = :prixUnit, codeCateg = :codeCateg WHERE idProduit = :idProduit";

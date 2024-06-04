@@ -52,7 +52,7 @@ class Database
   {
     $statement = $this->PDOInstance->prepare($query);
     $result = $statement->execute($data);
-
+    var_dump($result);
     if ($result) {
       return true;
     }
